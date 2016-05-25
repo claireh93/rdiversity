@@ -80,6 +80,12 @@ setMethod(f = "commdiv", signature(levels="numeric"),
           } )
 ## Take in vector or a dataframe and convert into matrix, then re-call commdiv
 
+setMethod(f = "commdiv", signature(levels="data.frame"), 
+          definition = function(data, qs, levels) {
+            levels <- as.matrix(levels)
+            commdiv(data,qs,levels)
+          } )
+
 #' @rdname commdiv
 #' 
 setMethod(f = "commdiv", signature= "supercommunity", 
