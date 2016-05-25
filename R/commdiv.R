@@ -48,10 +48,9 @@ setGeneric(name = "commdiv",
 #' 
 setMethod(f = "commdiv", signature(levels="matrix"), 
           definition = function(data, qs, levels) {
-            data.sub <- subdiv(data, qs)
             output <- matrix(nrow=length(unique(levels)), ncol=length(qs))
             for (i in unique(levels)){
-              chunk=data.sub[which(span==i),]
+              chunk=data[which(span==i),]
               output[(i+1),] <- sapply(seq_along(qs), 
                                        function(y) power.mean(chunk, order=(1-qs[y])))}
             colnames(output) <- paste0("q",qs)
