@@ -65,18 +65,6 @@ setMethod(f = "commdiv", signature(levels="numeric"),
           definition = function(data, qs, levels) {
             levels <- as.matrix(levels)
             commdiv(data,qs,levels)
-            #             # Calculate subcommunity diversity
-            #             data.sub <- subdiv(data, qs)
-            #             # Calculate diversities of communities
-            #             output <- matrix(nrow=length(unique(levels)), ncol=length(qs))
-            #             for (i in unique(levels)){
-            #               chunk=data.sub[which(levels==i),]
-            #               # Calculate powermean of subcommunity diversities for each q value
-            #               output[i,] <- sapply(seq_along(qs), 
-            #                                                function(y) power.mean(chunk, order=(1-qs[y])))}
-            #             colnames(output) <- paste0("q",qs)
-            #             rownames(output) <- paste("Community",unique(levels))
-            #             output
           } )
 ## Take in vector or a dataframe and convert into matrix, then re-call commdiv
 
