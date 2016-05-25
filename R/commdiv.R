@@ -51,10 +51,10 @@ setMethod(f = "commdiv", signature(levels="matrix"),
             output <- matrix(nrow=length(unique(levels)), ncol=length(qs))
             for (i in unique(levels)){
               chunk=data[which(levels==i),]
-              output[(i+1),] <- sapply(seq_along(qs), 
+              output[i,] <- sapply(seq_along(qs), 
                                        function(y) power.mean(chunk, order=(1-qs[y])))}
             colnames(output) <- paste0("q",qs)
-            rownames(output) <- paste("Community",unique(span)+1)
+            rownames(output) <- paste("Community",unique(levels)+1)
             output
           } )
 
