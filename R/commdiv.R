@@ -38,11 +38,6 @@ setGeneric(name = "commdiv",
            def = function(data, qs, levels) {
              standardGeneric("commdiv")
            } )
-
-#' @rdname commdiv
-#' 
-
-
 #' @rdname commdiv
 #' @return 
 #' 
@@ -59,20 +54,20 @@ setMethod(f = "commdiv", signature(levels="matrix"),
             rownames(output) <- paste("Community",unique(levels)+1)
             output
           } )
-
-
+#' @rdname commdiv
+#' 
 setMethod(f = "commdiv", signature(levels="numeric"), 
           definition = function(data, qs, levels) {
             levels <- as.matrix(levels)
             commdiv(data,qs,levels)
           } )
-
+#' @rdname commdiv
+#' 
 setMethod(f = "commdiv", signature(levels="data.frame"), 
           definition = function(data, qs, levels) {
             levels <- as.matrix(levels)
             commdiv(data,qs,levels)
           } )
-
 #' @rdname commdiv
 #' 
 setMethod(f = "commdiv", signature= "supercommunity", 
