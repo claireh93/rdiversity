@@ -53,8 +53,8 @@ setMethod(f = "commdiv", signature(levels="matrix"),
             for (i in unique(levels)){
               chunk=data.sub[which(levels==i),]
               q.list <- as.list(seq_along(qs))
-              output[i,] <- lapply(q.list, 
-                                       function(y) power.mean(chunk, order=(1-qs[y])))}
+              output[i,] <- unlist(lapply(q.list, 
+                                       function(y) power.mean(chunk, order=(1-qs[y]))))}
             colnames(output) <- paste0("q",qs)
             rownames(output) <- paste("Community",unique(levels)+1)
             output
